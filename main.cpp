@@ -140,6 +140,16 @@ void printPath(pair<int,int> exitcell,
             continue;
         }
 
+        // This checks if a value has already been visited, if so then skip
+        if (visited[rr][cc]) {
+            continue;
+        }
+
+        // Updating the parent before the recursive call
+        parent_r[rr][cc] = r;
+        parent_c[rr][cc] = c;
+
+
         // Recursive call
         if (dfs(rr, cc, maze, visited, parent_r, parent_c, exit_r, exit_c)) {
             return true;
